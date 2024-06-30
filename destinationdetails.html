@@ -1,0 +1,44 @@
+<!-- destinationdetails.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Details</title>
+    <link rel="stylesheet" href="Tourist.css">
+</head>
+<body>
+    <nav>
+        <img src="https://www.mahaecotourism.gov.in/ecotourism/themes/ecotourism/images/govmaha.png" alt="Government of Maharashtra Logo">
+        <ul>
+            <li><a href="Tourist.html">Home</a></li>
+            <li><a href="login.html">Sign In</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="destination-detail-container">
+            <div class="left-column">
+                <img id="destinationImage" src="" alt="Destination Image">
+                <p id="destinationDescription"></p>
+                <p id="destinationLocation"></p>
+                <p id="destinationWeather"></p>
+            </div>
+        </div>
+    </main>
+    <script src="Tourist.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedDestination = JSON.parse(localStorage.getItem('selectedDestination'));
+            if (selectedDestination) {
+    
+                document.getElementById('destinationImage').src = selectedDestination.imgSrc;
+                document.getElementById('destinationDescription').textContent = selectedDestination.description;
+                document.getElementById('destinationLocation').textContent = `Location: ${selectedDestination.location}`;
+                document.getElementById('destinationWeather').textContent = `Weather: ${selectedDestination.weather}`;
+               
+            }
+        });
+    </script>
+</body>
+</html>
